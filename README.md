@@ -1,4 +1,4 @@
 hlsl2glsl
 =========
 
-project for converting shaders to 
+project for converting shaders to glsl.
