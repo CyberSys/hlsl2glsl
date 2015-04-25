@@ -11,6 +11,7 @@ public class Parser{
     
     private String currentline;
     private BufferedReader reader;
+    private boolean inComment = false;
     
     public static void main(String... args){
         new Parser(args);
@@ -25,7 +26,8 @@ public class Parser{
         System.out.println("File opened");//start parsing the file
         do {
             currentline = reader.readLine();
-            //System.out.println(currentline); //debuging output
+            checkForComents(currentline);
+            
         }while(currentline!=null);
                 }
                 catch(EOFException eof){
@@ -41,10 +43,24 @@ public class Parser{
             
         }
         
-            
-            
-        }
         
+        
+        }
+        String checkForComents(String line){
+            boolean inQoute = false;
+            //check for comments and quotes
+            if(inComment){
+                int index;
+                index=line.indexOf("*/");
+                if(index == -1){
+                    return "";
+                }
+                return line.substring(index+2);
+            }else{
+            line.indexOf("/");
+            }
+            return line;//the parsable content
+    }
         
     
 }
